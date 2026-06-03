@@ -1,5 +1,4 @@
 <script setup>
-console.log("HCaptcha.vue component mounted"); // ← ADD THIS FIRST LINE
 import { ref, onMounted, defineExpose } from "vue";
 
 const token = defineModel();

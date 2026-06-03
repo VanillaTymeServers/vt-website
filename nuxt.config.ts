@@ -47,7 +47,7 @@ export default defineNuxtConfig({
                 global: "globalThis",
             },
         },
-        cacheDir: "/node_modules/.vite/apps/vanillatyme",
+        cacheDir: "node_modules/.vite/apps/vanillatyme",
         resolve: {
             dedupe: ["vue"],
         },

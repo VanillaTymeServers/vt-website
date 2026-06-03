@@ -43,10 +43,10 @@
                 <ButtonStyled size="large" type="outlined">
                     <nuxt-link
                         v-if="!auth.user"
-                        to="/auth/sign-up"
+                        to="https://discord.vanillatymeservers.com"
                         rel="noopener nofollow"
                     >
-                        <IconLogin2 aria-hidden="true" />
+                        <IconClipboardList aria-hidden="true" />
                         Apply to join
                     </nuxt-link>
                     <nuxt-link v-else to="/dashboard/projects">
