@@ -731,7 +731,7 @@ useSeoMeta({
     ogDescription:
         "Vanilla Tyme SMP is a Minecraft server that is focused on providing a vanilla experience with a few quality of life plugins.",
     ogType: "website",
-    ogImage: "https://cdn.modrinth.com/modrinth-new.png",
+    ogImage: "https://cdn.vanillatyme.com/LogoCream.webp",
     ogUrl: link,
 
     // Twitter
