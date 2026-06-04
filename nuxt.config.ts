@@ -7,6 +7,7 @@ import ReportType from "./src/server/models/report_type";
 import Project from "./src/server/models/project";
 import User from "./src/server/models/user";
 import Team from "./src/server/models/team";
+import mongoose from "mongoose";
 
 export default defineNuxtConfig({
     compatibilityDate: "2024-11-01",
@@ -14,7 +15,12 @@ export default defineNuxtConfig({
     debug: false,
     srcDir: "src/",
     css: ["~/assets/styles/tailwind.css", "~/assets/styles/omorphia.scss"],
-    modules: ["nuxt-mongoose", "@scalar/nuxt", "nuxt-tiptap-editor", "nuxt-color-picker"],
+    modules: [
+        "nuxt-mongoose",
+        "@scalar/nuxt",
+        "nuxt-tiptap-editor",
+        "nuxt-color-picker",
+    ],
     tiptap: { prefix: "tiptap" },
     postcss: {
         plugins: {
@@ -72,7 +78,12 @@ export default defineNuxtConfig({
         async "build:before"() {
             // 30 minutes
             const TTL = 30 * 60 * 1000;
-
+            if (
+                process.env.MONGODB_URI &&
+                mongoose.connection.readyState === 0
+            ) {
+                await mongoose.connect(process.env.MONGODB_URI);
+            }
             let state: {
                 lastGenerated?: string;
                 apiUrl?: string;
@@ -280,7 +291,6 @@ export default defineNuxtConfig({
             state.homePageSearch = homePageSearch;
             state.homePageNotifs = homePageNotifs;
 
-            
             await fs.writeFile(
                 "./src/generated/state.json",
                 JSON.stringify(state),
