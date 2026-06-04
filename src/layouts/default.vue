@@ -577,7 +577,7 @@
                             <p class="m-0">
                                 Website is
                                 <a
-                                    href="https://github.com/VanillaTymeServers/website"
+                                    href="https://github.com/VanillaTymeServers/vt-website"
                                     class="text-brand hover:underline"
                                     target="_blank"
                                     rel="noopener"
